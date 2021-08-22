@@ -1,0 +1,125 @@
+home_team,away_team,tournament,start_time,kickoff
+Manchester City,Huddersfield Town,fa,Wednesday 1st March 2017,19:45
+Arsenal,Lincoln City,fa,Saturday 11th March 2017,17:30
+Tottenham Hotspur,Millwall,fa,Sunday 12th March 2017,14:00
+Chelsea,Manchester United,fa,Monday 13th March 2017,19:45
+Manchester United,Bournemouth,premier-league,Saturday 4th March 2017,12:30
+Leicester City,Hull City,premier-league,Saturday 4th March 2017,15:00
+Stoke City,Middlesbrough,premier-league,Saturday 4th March 2017,15:00
+Swansea City,Burnley,premier-league,Saturday 4th March 2017,15:00
+Watford,Southampton,premier-league,Saturday 4th March 2017,15:00
+West Bromwich Albion,Crystal Palace,premier-league,Saturday 4th March 2017,15:00
+Liverpool,Arsenal,premier-league,Saturday 4th March 2017,17:30
+Tottenham Hotspur,Everton,premier-league,Sunday 5th March 2017,13:30
+Sunderland,Manchester City,premier-league,Sunday 5th March 2017,16:00
+West Ham United,Chelsea,premier-league,Monday 6th March 2017,20:00
+Manchester City,Stoke City,premier-league,Saturday 11th March 2017,12:30
+Bournemouth,West Ham United,premier-league,Saturday 11th March 2017,15:00
+Crystal Palace,Tottenham Hotspur,premier-league,Saturday 11th March 2017,15:00
+Everton,West Bromwich Albion,premier-league,Saturday 11th March 2017,15:00
+Hull City,Swansea City,premier-league,Saturday 11th March 2017,15:00
+Middlesbrough,Sunderland,premier-league,Saturday 11th March 2017,15:00
+Arsenal,Leicester City,premier-league,Saturday 11th March 2017,15:00
+Southampton,Manchester United,premier-league,Sunday 12th March 2017,15:00
+Liverpool,Burnley,premier-league,Sunday 12th March 2017,16:00
+Chelsea,Watford,premier-league,Monday 13th March 2017,16:00
+West Bromwich Albion,Arsenal,premier-league,Saturday 18th March 2017,12:30
+Crystal Palace,Watford,premier-league,Saturday 18th March 2017,15:00
+Everton,Hull City,premier-league,Saturday 18th March 2017,15:00
+Stoke City,Chelsea,premier-league,Saturday 18th March 2017,15:00
+Sunderland,Burnley,premier-league,Saturday 18th March 2017,15:00
+West Ham United,Leicester City,premier-league,Saturday 18th March 2017,15:00
+Bournemouth,Swansea City,premier-league,Saturday 18th March 2017,17:30
+Middlesbrough,Manchester United,premier-league,Sunday 19th March 2017,12:00
+Tottenham Hotspur,Southampton,premier-league,Sunday 19th March 2017,14:15
+Manchester City,Liverpool,premier-league,Sunday 19th March 2017,16:30
+Arsenal,Manchester City,premier-league,Saturday 1st April 2017,15:00
+Burnley,Tottenham Hotspur,premier-league,Saturday 1st April 2017,15:00
+Chelsea,Crystal Palace,premier-league,Saturday 1st April 2017,15:00
+Hull City,West Ham United,premier-league,Saturday 1st April 2017,15:00
+Leicester City,Stoke City,premier-league,Saturday 1st April 2017,15:00
+Liverpool,Everton,premier-league,Saturday 1st April 2017,15:00
+Manchester United,West Bromwich Albion,premier-league,Saturday 1st April 2017,15:00
+Southampton,Bournemouth,premier-league,Saturday 1st April 2017,15:00
+Swansea City,Middlesbrough,premier-league,Saturday 1st April 2017,15:00
+Watford,Sunderland,premier-league,Saturday 1st April 2017,15:00
+Arsenal,West Ham United,premier-league,Tuesday 4th April 2017,19:45
+Burnley,Stoke City,premier-league,Tuesday 4th April 2017,19:45
+Hull City,Middlesbrough,premier-league,Tuesday 4th April 2017,19:45
+Leicester City,Sunderland,premier-league,Tuesday 4th April 2017,19:45
+Swansea City,Tottenham Hotspur,premier-league,Tuesday 4th April 2017,19:45
+Watford,West Bromwich Albion,premier-league,Tuesday 4th April 2017,19:45
+Manchester United,Everton,premier-league,Tuesday 4th April 2017,20:00
+Chelsea,Manchester City,premier-league,Wednesday 5th April 2017,19:45
+Southampton,Crystal Palace,premier-league,Wednesday 5th April 2017,19:45
+Liverpool,Bournemouth,premier-league,Wednesday 5th April 2017,20:00
+Bournemouth,Chelsea,premier-league,Saturday 8th April 2017,15:00
+Crystal Palace,Arsenal,premier-league,Saturday 8th April 2017,15:00
+Everton,Leicester City,premier-league,Saturday 8th April 2017,15:00
+Manchester City,Hull City,premier-league,Saturday 8th April 2017,15:00
+Middlesbrough,Burnley,premier-league,Saturday 8th April 2017,15:00
+Stoke City,Liverpool,premier-league,Saturday 8th April 2017,15:00
+Sunderland,Manchester United,premier-league,Saturday 8th April 2017,15:00
+Tottenham Hotspur,Watford,premier-league,Saturday 8th April 2017,15:00
+West Bromwich Albion,Southampton,premier-league,Saturday 8th April 2017,15:00
+West Ham United,Swansea City,premier-league,Saturday 8th April 2017,15:00
+Crystal Palace,Leicester City,premier-league,Saturday 15th April 2017,15:00
+Everton,Burnley,premier-league,Saturday 15th April 2017,15:00
+Manchester United,Chelsea,premier-league,Saturday 15th April 2017,15:00
+Middlesbrough,Arsenal,premier-league,Saturday 15th April 2017,15:00
+Southampton,Manchester City,premier-league,Saturday 15th April 2017,15:00
+Stoke City,Hull City,premier-league,Saturday 15th April 2017,15:00
+Sunderland,West Ham United,premier-league,Saturday 15th April 2017,15:00
+Tottenham Hotspur,Bournemouth,premier-league,Saturday 15th April 2017,15:00
+Watford,Swansea City,premier-league,Saturday 15th April 2017,15:00
+West Bromwich Albion,Liverpool,premier-league,Sunday 16th April 2017,16:00
+Arsenal,Sunderland,premier-league,Saturday 22nd April 2017,15:00
+Bournemouth,Middlesbrough,premier-league,Saturday 22nd April 2017,15:00
+Burnley,Manchester United,premier-league,Saturday 22nd April 2017,15:00
+Chelsea,Southampton,premier-league,Saturday 22nd April 2017,15:00
+Hull City,Watford,premier-league,Saturday 22nd April 2017,15:00
+Leicester City,Tottenham Hotspur,premier-league,Saturday 22nd April 2017,15:00
+Liverpool,Crystal Palace,premier-league,Saturday 22nd April 2017,15:00
+Manchester City,West Bromwich Albion,premier-league,Saturday 22nd April 2017,15:00
+Swansea City,Stoke City,premier-league,Saturday 22nd April 2017,15:00
+West Ham United,Everton,premier-league,Saturday 22nd April 2017,15:00
+Crystal Palace,Burnley,premier-league,Saturday 29th April 2017,15:00
+Everton,Chelsea,premier-league,Saturday 29th April 2017,15:00
+Manchester United,Swansea City,premier-league,Saturday 29th April 2017,15:00
+Middlesbrough,Manchester City,premier-league,Saturday 29th April 2017,15:00
+Southampton,Hull City,premier-league,Saturday 29th April 2017,15:00
+Stoke City,West Ham United,premier-league,Saturday 29th April 2017,15:00
+Sunderland,Bournemouth,premier-league,Saturday 29th April 2017,15:00
+Tottenham Hotspur,Arsenal,premier-league,Saturday 29th April 2017,15:00
+Watford,Liverpool,premier-league,Saturday 29th April 2017,15:00
+West Bromwich Albion,Leicester City,premier-league,Saturday 29th April 2017,15:00
+Arsenal,Manchester United,premier-league,Saturday 6th May 2017,15:00
+Bournemouth,Stoke City,premier-league,Saturday 6th May 2017,15:00
+Burnley,West Bromwich Albion,premier-league,Saturday 6th May 2017,15:00
+Chelsea,Middlesbrough,premier-league,Saturday 6th May 2017,15:00
+Hull City,Sunderland,premier-league,Saturday 6th May 2017,15:00
+Leicester City,Watford,premier-league,Saturday 6th May 2017,15:00
+Liverpool,Southampton,premier-league,Saturday 6th May 2017,15:00
+Manchester City,Crystal Palace,premier-league,Saturday 6th May 2017,15:00
+Swansea City,Everton,premier-league,Saturday 6th May 2017,15:00
+West Ham United,Tottenham Hotspur,premier-league,Saturday 6th May 2017,15:00
+Bournemouth,Burnley,premier-league,Saturday 13th May 2017,15:00
+Crystal Palace,Hull City,premier-league,Saturday 13th May 2017,15:00
+Everton,Watford,premier-league,Saturday 13th May 2017,15:00
+Manchester City,Leicester City,premier-league,Saturday 13th May 2017,15:00
+Middlesbrough,Southampton,premier-league,Saturday 13th May 2017,15:00
+Stoke City,Arsenal,premier-league,Saturday 13th May 2017,15:00
+Sunderland,Swansea City,premier-league,Saturday 13th May 2017,15:00
+Tottenham Hotspur,Manchester United,premier-league,Saturday 13th May 2017,15:00
+West Bromwich Albion,Chelsea,premier-league,Saturday 13th May 2017,15:00
+West Ham United,Liverpool,premier-league,Saturday 13th May 2017,15:00
+Arsenal,Everton,premier-league,Sunday 21st May 2017,15:00
+Burnley,West Ham United,premier-league,Sunday 21st May 2017,15:00
+Chelsea,Sunderland,premier-league,Sunday 21st May 2017,15:00
+Hull City,Tottenham Hotspur,premier-league,Sunday 21st May 2017,15:00
+Leicester City,Bournemouth,premier-league,Sunday 21st May 2017,15:00
+Liverpool,Middlesbrough,premier-league,Sunday 21st May 2017,15:00
+Manchester United,Crystal Palace,premier-league,Sunday 21st May 2017,15:00
+Southampton,Stoke City,premier-league,Sunday 21st May 2017,15:00
+Swansea City,West Bromwich Albion,premier-league,Sunday 21st May 2017,15:00
+Watford,Manchester City,premier-league,Sunday 21st May 2017,15:00

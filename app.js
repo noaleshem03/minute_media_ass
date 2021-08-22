@@ -21,7 +21,11 @@ catch(err){
 
 
 //routs
-app.get('/matches', async (req, res, next) => {
+app.get('/', async (req, res) => {
+    res.send('<h1>Minute Media Assignment<h1/><h2>Noa Leshem<h2/>')
+});
+
+app.get('/matches', async (req, res) => {
     let query = req.query;
     let result;
     try {

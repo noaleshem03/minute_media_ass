@@ -76,10 +76,10 @@ const initTables = async (dataFilePath, type) => {
 
 const generateId = (param, table) => {
     let id;
-    let sql = `SELECT COUNT(*) AS count FROM ` + table + ` WHERE name = ` + param + `;`;
-        connection.query(sql, (err, rows) => {
+    let sql = `SELECT id FROM ` + table + ` WHERE name = ` + param + `;`;
+        connection.query(sql, (err, res) => {
             if (err) throw err;
-            if (rows[0].count == 0){
+            if (res.length === 0){
                 sql = `INSERT INTO ` + table + ` (id, name) 
                 VALUES (?, ?);`
                 id = uuid.v4();
@@ -88,6 +88,8 @@ const generateId = (param, table) => {
                     if (err) throw err;
                 });
             }
+            console.log("!!!!!!!!!!!!!");
+            console.log(res);
         });
     return id;
 }

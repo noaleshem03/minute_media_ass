@@ -38,8 +38,7 @@ const initTables = async (dataFilePath, type) => {
         `CREATE TABLE IF NOT EXISTS teams (
         id varchar(255) NOT NULL,
         name varchar(100) NOT NULL,
-        PRIMARY KEY(id),
-        UNIQUE(name));`,
+        PRIMARY KEY(id));`,
         (error) => {
             if (error) throw error;
             console.log("teams table was created");
@@ -48,8 +47,7 @@ const initTables = async (dataFilePath, type) => {
         `CREATE TABLE IF NOT EXISTS tournaments (
         id varchar(255) NOT NULL,
         name varchar(100) NOT NULL
-        PRIMARY KEY(id),
-        UNIQUE(name));`,
+        PRIMARY KEY(id));`,
         (error) => {
             if (error) throw error;
             console.log("tournaments table was created");

@@ -1,4 +1,4 @@
-const dataModels = require('./daoMysql');
+const dataModels = require('./dao');
 
 
 module.exports = {

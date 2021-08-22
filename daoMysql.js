@@ -39,8 +39,7 @@ const initTables = async (dataFilePath, type) => {
         id varchar(255) NOT NULL,
         name varchar(100) NOT NULL,
         PRIMARY KEY(id),
-        UNIQUE(name),
-        INDEX name(name));`,
+        UNIQUE(name));`,
         (error) => {
             if (error) throw error;
             console.log("teams table was created");
@@ -50,8 +49,7 @@ const initTables = async (dataFilePath, type) => {
         id varchar(255) NOT NULL,
         name varchar(100) NOT NULL
         PRIMARY KEY(id),
-        UNIQUE(name),
-        INDEX name(name));`,
+        UNIQUE(name));`,
         (error) => {
             if (error) throw error;
             console.log("tournaments table was created");

@@ -50,23 +50,27 @@ const initData = async (dataFilePath, type) => {
 const filterMatchesArray = (array, param, name, status=undefined) => {
     let result = [];
     for (i of array){
+        let iStatus = i['status'];
         if (param === 'team'){
+            let homeTeam = i['home']['team'];
+            let awayTeam = i['away']['team'];
             if (status === undefined){
-                if ((i['home']['team'] === name) || (i['away']['team'] === name))
+                if ((homeTeam === name) || (awayTeam === name))
                     result.push(i);
             }
             else{
-                if (((i['home']['team'] === name) || (i['away']['team'] === name)) && i['status'] === status)
+                if (((homeTeam === name) || (awayTeam === name)) && iStatus === status)
                     result.push(i);
             } 
         }
-        if (param === 'tournament'){
+        else if (param === 'tournament'){
+            let tournament = i['tournament'];
             if (status === undefined){
-                if (i['tournament'] === name)
+                if (tournament === name)
                     result.push(i);
             }
             else{
-                if ((i['tournament'] === name) && (i['status'] === status))
+                if ((tournament === name) && (iStatus === status))
                     result.push(i);
             } 
         }

@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const matchService = require('./matchService');
 
 //init port
-const port = process.env.port || 5000;  
+const port = process.env.PORT || 5000;  
 //init express
 const app = express();
 app.use(bodyParser.json());

@@ -12,7 +12,13 @@ app.use(bodyParser.json());
 const server = app.listen(port, () => console.log(`Server started on port ${port}`));
 
 //init data
-matchService.matchesInit();
+try{
+    matchService.matchesInit();
+}
+catch(err){
+    console.error(err);
+}
+
 
 //routs
 app.get('/matches', async (req, res, next) => {

@@ -26,10 +26,10 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/matches', async (req, res) => {
-    let query = req.query;
+    const query = req.query;
     let result;
     try {
-        let queryKeys = Object.keys(query);
+        const queryKeys = Object.keys(query);
         if (queryKeys.length === 0){
             return res.status(400).json({
                 message: 'Bad query, please enter parameters'
@@ -41,7 +41,7 @@ app.get('/matches', async (req, res) => {
             });
         }
         
-        let queryParam = queryKeys[0].toLowerCase();
+        const queryParam = queryKeys[0].toLowerCase();
         if (queryParam === 'team'){
             if (queryKeys.length === 1)
                 result = await matchService.matchesQuery(query.team);

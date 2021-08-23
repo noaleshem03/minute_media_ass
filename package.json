@@ -2,10 +2,10 @@
   "name": "MinuteMedia",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "mocha ./tests/tests.js"
+    "start": "node api.js",
+    "test": "mocha ./tests/api.it.js"
   },
   "keywords": [],
   "author": "",

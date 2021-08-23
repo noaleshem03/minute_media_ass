@@ -1,13 +1,13 @@
-const dataModels = require('./dao');
+const matchesDao = require('./daoMysql');
 
 
 module.exports = {
     matchesInit: async () => {
-        await dataModels.init();
+        await matchesDao.init();
     },
 
     //queries
     matchesQuery: async (team=undefined, tournament=undefined, status=undefined) => {
-        return await dataModels.matchesQuery(team, tournament, status);
+        return await matchesDao.matchesQuery(team, tournament, status);
     }
 }

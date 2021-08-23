@@ -7,20 +7,21 @@ const resultPlayedPath = 'result_played.csv';
 
 const db_config = {
     host: 'us-cdbr-east-04.cleardb.com',
-    user: 'b297d974f0bc03',
-    password: '7d17a968',
-    database: 'heroku_947a0e33bab078d'
+    user: 'b245e232bf8015',
+    password: 'a70686d5',
+    database: 'heroku_fd800f3f2a7d32b'
 };
 
 let connection; 
 
-const handle_connection = () => {
+const handle_connection = async () => {
     connection = mysql.createConnection(db_config); 
-    connection.connect((err) => {
+    await connection.connect((err) => {
         if (err) {                                     
             console.log('error when connecting to db:', err);
             setTimeout(handle_connection, 1000); 
         }  
+        console.log("db connected");
     });          
                                	
     connection.on('error', (err) => {
@@ -33,7 +34,7 @@ const handle_connection = () => {
     });
 }
 
-const initTables = async (dataFilePath, type) => {
+const initTables = async () => {
     await connection.query(
         'CREATE TABLE IF NOT EXISTS teams (\
         id VARCHAR(255) NOT NULL,\
@@ -153,10 +154,10 @@ const initData = async (dataFilePath, type) => {
 
 module.exports = {
     init: async () => {
-        handle_connection();
-        initTables();
-        initData(resultUpcomingPath, 'upcoming');
-        initData(resultPlayedPath, 'played');
+        await handle_connection();
+        await initTables();
+        await initData(resultUpcomingPath, 'upcoming');
+        await initData(resultPlayedPath, 'played');
     },
 
     matchesQuery: async (team=undefined, tournament=undefined, status=undefined) => {

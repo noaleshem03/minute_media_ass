@@ -7,9 +7,9 @@ const resultPlayedPath = 'result_played.csv';
 
 const db_config = {
     host: 'us-cdbr-east-04.cleardb.com',
-    user: 'b245e232bf8015',
-    password: 'a70686d5',
-    database: 'heroku_fd800f3f2a7d32b'
+    user: 'b4f1d1000f371b',
+    password: 'e7402430',
+    database: 'heroku_55e746305ab6fd3'
 };
 
 let connection; 
@@ -34,27 +34,25 @@ const handle_connection = async () => {
     });
 }
 
+const createTable = (query) => {
+    return new Promise ((resolve, reject) => {
+        connection.query(query, (err, res) => {
+            if (err) reject(err);
+            return resolve(res);
+        });
+    });
+}
+
 const initTables = async () => {
-    await connection.query(
-        'CREATE TABLE IF NOT EXISTS teams (\
+    const teamsQuery = 'CREATE TABLE IF NOT EXISTS teams (\
         id VARCHAR(255) NOT NULL,\
         name VARCHAR(100) NOT NULL,\
-        PRIMARY KEY(id));',
-        (error) => {
-            if (error) throw error;
-            console.log("teams table was created");
-    });
-    await connection.query(
-        'CREATE TABLE IF NOT EXISTS tournaments (\
+        PRIMARY KEY(id));';
+    const tournamentsQuery = 'CREATE TABLE IF NOT EXISTS tournaments (\
         id VARCHAR(255) NOT NULL,\
         name VARCHAR(100) NOT NULL,\
-        PRIMARY KEY(id));',
-        (error) => {
-            if (error) throw error;
-            console.log("tournaments table was created");
-    });
-    await connection.query(
-        'CREATE TABLE IF NOT EXISTS matches (\
+        PRIMARY KEY(id));';
+    const matchesQuery = 'CREATE TABLE IF NOT EXISTS matches (\
         matchId VARCHAR(255) NOT NULL,\
         tournamentId VARCHAR(255) NOT NULL,\
         status ENUM("upcoming", "played") NOT NULL, \
@@ -64,67 +62,79 @@ const initTables = async () => {
         awayScore INT DEFAULT NULL,\
         startTime VARCHAR(100) NOT NULL,\
         kickoff VARCHAR(5) DEFAULT NULL,\
-        PRIMARY KEY(matchId));',
-        (error) => {
-            if (error) throw error;
-            console.log("matches table was created");
+        PRIMARY KEY(matchId));';
+    await createTable(teamsQuery);
+    await createTable(tournamentsQuery);
+    await createTable(matchesQuery);
+    
+}
+
+const insertItem = (table, param) => {
+    const insertIdQuery = 'INSERT INTO ' + table + ' (id, name) VALUES (?, ?);';
+    const id = uuid.v4();
+    return new Promise((resolve, reject) => {
+        connection.query(insertIdQuery, [id, param], (err) => {
+            if (err) reject1(err);
+            return resolve(id);
+        });
     });
 }
 
-const insertItemAndGenerateId = async (param, table) => {
+const insertItemAndGenerateId = (param, table) => {
     const getIdQuery = 'SELECT id FROM ' + table + ' WHERE name="' + param + '";';
-    const generatedId = await connection.query(getIdQuery, async (err, res) => {
-        if (err) throw err;
-        if (res.length === 0) {
-            const insertIdQuery = 'INSERT INTO "' + table + '" (id, name) VALUES (?, ?);';
-            const id = uuid.v4();
-            await connection.query(insertIdQuery, [id, param], (err) => {
-                if (err) throw err;
-            });
-            return id;
-        }
-        else {
-            return res[0].id;
-        }
+    return new Promise((resolve, reject) => {
+        connection.query(getIdQuery, async (err, res) => {
+            if (err) reject(err);
+            if (res.length === 0) {
+                const id = await insertItem(table, param);
+                return resolve(id);
+            }
+            else {
+                return resolve(res[0].id);
+            }
+        });
     });
-    return generatedId;
 }
 
-const getIdItem = async (param, table, paramName) => {
-    let id;
-    let sql = 'SELECT id FROM ' + table + ' WHERE name="' + param + '";';
-        await connection.query(sql, (err, res) => {
-            if (err) throw err;
+const getIdItem = (param, table, paramName) => {
+    const getIdQuery = 'SELECT id FROM ' + table + ' WHERE name="' + param + '";';
+    return new Promise((resolve, reject) => {
+        connection.query(getIdQuery, (ree, res) =>{
+            if (err) reject(err);
             if (res.length === 0)
                 throw 'Invalid ' + paramName + ' name, please enter again';
-            id = res[0].id;
+            return resolve(res[0].id);
         });
-    return id;
-}
-
-const getDataByTeam = async (teamId, status) => {
-    let sql;
-    if (status === undefined)
-        sql = 'SELECT * FROM matches WHERE homeTeamId="' + teamId + '" OR awayTeamId="' + teamId + '";';
-    else
-        sql = 'SELECT * FROM matches WHERE (homeTeamId="' + teamId + '" OR awayTeamId="' + teamId + '") \
-                AND status="' + status + '";';
-    await connection.query(sql, (err, res) => {
-        if (err) throw err;
-        return res;
     });
 }
 
-const getDataByTournament = async (tournamentId, status) => {
-    let sql;
+const getDataByTeam = (teamId, status) => {
+    let getMatchesQuery;
     if (status === undefined)
-        sql = 'SELECT * FROM matches WHERE tournamentId="' + tournamentId + '";';
+        getMatchesQuery = 'SELECT * FROM matches WHERE homeTeamId="' + teamId + '" OR awayTeamId="' + teamId + '";';
     else
-        sql = 'SELECT * FROM matches WHERE tournamentId="' + tournamentId + '"\
+        getMatchesQuery = 'SELECT * FROM matches WHERE (homeTeamId="' + teamId + '" OR awayTeamId="' + teamId + '") \
                 AND status="' + status + '";';
-    await connection.query(sql, (err, res) => {
-        if (err) throw err;
-        return res;
+    return new Promise((resolve, reject) => {
+        connection.query(getMatchesQuery, (err, res) =>{
+            if (err) reject(err);
+            return resolve(res);
+        });
+    });
+}
+
+const getDataByTournament = (tournamentId, status) => {
+    let getMatchesQuery;
+    if (status === undefined)
+        getMatchesQuery = 'SELECT * FROM matches WHERE tournamentId="' + tournamentId + '";';
+    else
+        getMatchesQuery = 'SELECT * FROM matches WHERE tournamentId="' + tournamentId + '"\
+                AND status="' + status + '";';
+    return new Promise((resolve, reject) => {
+        connection.query(getMatchesQuery, (err, res) =>{
+            if (err) reject(err);
+            return resolve(res);
+        });
     });
 }
 
@@ -154,7 +164,7 @@ const initData = async (dataFilePath, type) => {
 
 module.exports = {
     init: async () => {
-        await handle_connection();
+        handle_connection();
         await initTables();
         await initData(resultUpcomingPath, 'upcoming');
         await initData(resultPlayedPath, 'played');

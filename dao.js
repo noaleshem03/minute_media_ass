@@ -41,7 +41,6 @@ const initData = async (dataFilePath, type) => {
             match['away']['score'] = undefined;
             match['kickoff'] = item.kickoff;
         }
-
         const matchId = uuid.v4();
         matches[matchId] = match;
     })
@@ -78,7 +77,6 @@ const filterMatchesArray = (array, param, name, status=undefined) => {
     return result;
 }
   
-
 module.exports = {
     init: async () => {
         initData(resultUpcomingPath, 'upcoming');

@@ -82,4 +82,9 @@ app.get('/matches', async (req, res) => {
 });
 
 
+app.get('/try', async (req, res) => {
+    let result = await matchService.tryQuery();
+    res.json(result);
+});
+
 module.exports = server;

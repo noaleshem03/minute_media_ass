@@ -22,59 +22,42 @@ const initData = async (dataFilePath, type) => {
         }
         
         match = {};
-        match['tournament'] = item.tournament;
-        match['status'] = undefined;
-        match['home'] = {};
-        match['away'] = {};
-        match['home']['team'] = item.home_team;
-        match['away']['team'] = item.away_team;
-        match['date'] = item.start_time;
+        match.tournament = item.tournament;
+        match.status = undefined;
+        match.home = {};
+        match.away = {};
+        match.home.team = item.home_team;
+        match.away.team = item.away_team;
+        match.startTime = item.start_time;
         if (type === 'played'){
-            match['status'] = 'played';
-            match['home']['score'] = item.home_score;
-            match['away']['score'] = item.away_score;
-            match['kickoff'] = undefined;
+            match.status = 'played';
+            match.home.score = item.home_score;
+            match.away.score = item.away_score;
+            match.kickoff = undefined;
         }
         else if (type === 'upcoming'){
-            match['status'] = 'upcoming';
-            match['home']['score'] = undefined;
-            match['away']['score'] = undefined;
-            match['kickoff'] = item.kickoff;
+            match.status = 'upcoming';
+            match.home.score = undefined;
+            match.away.score = undefined;
+            match.kickoff = item.kickoff;
         }
         const matchId = uuid.v4();
         matches[matchId] = match;
     })
 }
 
-const filterMatchesArray = (array, param, name, status=undefined) => {
-    let result = [];
-    for (i of array){
-        const iStatus = i['status'];
-        if (param === 'team'){
-            const homeTeam = i['home']['team'];
-            const awayTeam = i['away']['team'];
-            if (status === undefined){
-                if ((homeTeam === name) || (awayTeam === name))
-                    result.push(i);
-            }
-            else{
-                if (((homeTeam === name) || (awayTeam === name)) && iStatus === status)
-                    result.push(i);
-            } 
-        }
-        else if (param === 'tournament'){
-            const tournament = i['tournament'];
-            if (status === undefined){
-                if (tournament === name)
-                    result.push(i);
-            }
-            else{
-                if ((tournament === name) && (iStatus === status))
-                    result.push(i);
-            } 
-        }
-    }
-    return result;
+const filterMatchesByTeam = (array, name, status=undefined) => {
+    return array.filter((item) => {
+        return (item.home.team === name || item.away.team === name) && 
+            (status === undefined || (status !== undefined && item.status === status));
+    });
+};
+
+const filterMatchesByTournament = (array, name, status=undefined) => {
+    return array.filter((item) => {
+        return (item.tournament === name) && 
+        (status === undefined || (status !== undefined && item.status === status));
+    });
 }
   
 module.exports = {
@@ -91,13 +74,13 @@ module.exports = {
             const teamId = teams[team];
             if (teamId === undefined)
                 throw 'Invalid team name, please enter again';
-            return filterMatchesArray(matchesArray, 'team', team, status);
+            return filterMatchesByTeam(matchesArray, team, status);
         }
         else if (tournament !== undefined){
             const tournamentId = tournaments[tournament];
             if (tournamentId === undefined)
                 throw 'Invalid tournamnet name, please enter again';
-            return filterMatchesArray(matchesArray, 'tournament', tournament, status);
+            return filterMatchesByTournament(matchesArray, tournament, status);
         }    
     }
 }
